@@ -1,34 +1,73 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 마시멜롱즈(@marshemllongz)
 
-## Getting Started
+## <a href="">사이트 바로가기</a>
 
-First, run the development server:
+## <a href="">스토리북 바로가기</a>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+## 프로젝트 설명
+
+마시멜롱즈 캐릭터 굿즈 판매 사이트입니다
+
+## 실행 방법
+
+### 0. 패키지 설치
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. .env 파일 생성 후 키 입력하기
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+vercel에서 확인 가능!
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+DATABASE_URL=
 
-## Learn More
+CLOUDFLARE_IMAGE_API_KEY=
 
-To learn more about Next.js, take a look at the following resources:
+CLOUDFLARE_ACCOUNT_ID=
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. .env.development 파일 생성
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+vercel에서 확인 가능!
 
-## Deploy on Vercel
+```
+DATABASE_URL=
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+CLOUDFLARE_IMAGE_API_KEY=
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+CLOUDFLARE_ACCOUNT_ID=
+```
+
+### 3. pscale에 로그인 하기
+
+```
+pscale login
+```
+
+### 4. pscale 데이터 베이스와 연결하기
+
+```
+pscale connect carrot-market
+
+
+
+배포 브런치  => mytutor
+
+개발 브런치 => indexes
+```
+
+### 5. 연결하면 나오는 아이피를 .env에 연결
+
+.env
+
+```
+DATABASE_URL = 'mysql://${아이피}/carrot-market';
+```
+
+### 6. 실행
+
+```
+npm run dev
+```
