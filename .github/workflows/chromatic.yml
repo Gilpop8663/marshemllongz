@@ -1,26 +1,34 @@
-# .github/workflows/chromatic.yml
-
-# Workflow name
-name: 'Chromatic'
-
-# Event for the workflow
-on: push
-
-# List of jobs
+name: Storybook Deployment
+run-name: ${{ github.actor }}의 스토리북 배포
+on:
+  push:
+    branches:
+      - dev
 jobs:
-  chromatic-deployment:
-    # Operating System
-    runs-on: ubuntu-latest
-    # Job steps
+  storybook:
+    runs-on: ubuntu-20.04
+    outputs:
+      status: ${{ job.status }}
     steps:
-      - uses: actions/checkout@v1
-      - name: Install dependencies
-        # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
-        run: npm
-        # 👇 Adds Chromatic as a step in the workflow
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        # Chromatic GitHub Action options
+      - name: checkout repository
+        uses: actions/checkout@v3
         with:
-          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          fetch-depth: 0
+
+      - name: cache dependencies
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-storybook
+
+      - name: depedency install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: publish to chromatic
+        id: chromatic
+        uses: chromaui/action@v1
+        with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          token: ${{ secrets.PROJECT_GITHUB_TOKEN }}
