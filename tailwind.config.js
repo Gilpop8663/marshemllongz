@@ -16,9 +16,12 @@ module.exports = {
         primaryBlack: '#222222',
         darkGray: '#4e4e4e',
         whiteGray: '#f7f7f7',
+        primaryRed: '#ff5454',
+        primaryOrange: '#FF8300',
       },
       fontFamily: {
         base: ['Noto Sans KR'],
+        handWriting: ['Delicious Handrawn'],
       },
     },
   },
