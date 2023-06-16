@@ -15,6 +15,7 @@ module.exports = {
         primaryWhite: '#ffffff',
         primaryBlack: '#222222',
         darkGray: '#4e4e4e',
+        whiteGray: '#f7f7f7',
       },
       fontFamily: {
         base: ['Noto Sans KR'],
