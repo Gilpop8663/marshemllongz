@@ -38,13 +38,17 @@ export default function ProductItem({
   const discountPrice =
     discountPercent && getPercentageNumber({ total: price, percent: discountPercent });
 
-  const discountedPrice = discountPrice && price - discountPrice;
+  const discountedPrice = discountPrice && price - Math.round(discountPrice);
 
   return (
-    <div className="flex flex-col  w-96 cursor-pointer">
-      <div className="relative w-96 h-96" onMouseEnter={toggleHovered} onMouseLeave={toggleHovered}>
+    <div className="flex flex-col w-full cursor-pointer">
+      <div
+        className="relative w-full aspect-square"
+        onMouseEnter={toggleHovered}
+        onMouseLeave={toggleHovered}
+      >
         {discountPercent && (
-          <div className="bg-primaryRed w-12 h-12 rounded-full text-primaryWhite flex flex-col justify-center items-center text-xs absolute z-20 top-3 left-3 font-medium">
+          <div className="bg-primaryRed w-12 h-12 rounded-full text-primaryWhite flex flex-col justify-center items-center text-xs absolute z-20 top-3 left-3 font-medium ">
             <span>NEW</span>
             <span>{discountPercent}%</span>
           </div>
@@ -52,14 +56,14 @@ export default function ProductItem({
         <Image
           className={getClassNames(
             hovered ? 'opacity-0' : '',
-            'transition-opacity duration-300 z-10 absolute'
+            'transition-opacity duration-300 z-10 absolute object-cover'
           )}
           priority={true}
           src={imageUrl}
           alt={title}
           fill={true}
         />
-        <Image className="absolute" src={hoverImageUrl} alt={title} fill={true} />
+        <Image className="absolute object-cover" src={hoverImageUrl} alt={title} fill={true} />
       </div>
       <div className="flex flex-col items-center space-y-2 mt-2">
         <span className="text-xs text-primaryBlack">{title}</span>
@@ -67,7 +71,7 @@ export default function ProductItem({
           <span className="text-xs text-primaryOrange font-handWriting">{getCategoryText()}</span>
         )}
         <div className="text-sm">
-          {discountedPrice && (
+          {!!discountedPrice && (
             <span className="text-primaryRed mr-1">{getFormattedPrice(discountedPrice)}원</span>
           )}
           <span className={getClassNames(discountPercent ? 'line-through' : '', ' text-darkGray')}>
