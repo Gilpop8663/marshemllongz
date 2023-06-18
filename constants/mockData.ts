@@ -1,4 +1,5 @@
 import { createRandomProductTitle, generateRandomId } from '@utils/mock';
+import { ProductItem, ProductItemPreview } from '@type/productType';
 
 export const MOCK_PREVIEW_PRODUCT_LIST: ProductItemPreview[] = [
   {
@@ -152,3 +153,22 @@ export const MOCK_PREVIEW_PRODUCT_LIST: ProductItemPreview[] = [
     title: createRandomProductTitle(),
   },
 ];
+
+const imageList = [];
+
+for (let i = 0; i < 10; i++) {
+  imageList.push({
+    url: `https://source.unsplash.com/600x400/?nature,water&sig=${Math.floor(Math.random() * 100)}`,
+    name: createRandomProductTitle(),
+  });
+}
+
+export const MOCK_PRODUCT_DETAIL: ProductItem = {
+  id: generateRandomId(16),
+  title: createRandomProductTitle(),
+  price: Math.floor(Math.random() * 10000),
+  imageList,
+  reviews: [],
+  stock: 3,
+  size: [],
+};

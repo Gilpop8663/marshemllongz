@@ -1,6 +1,6 @@
 type ProductCategory = 'new' | 'best';
 
-interface ProductItemPreview {
+export interface ProductItemPreview {
   id: string;
   imageUrl: string;
   hoverImageUrl: string;
@@ -10,12 +10,13 @@ interface ProductItemPreview {
   discountPercent?: number;
 }
 
-interface ProductItem {
-  imageUrlItems: string[];
+export interface ProductItem {
+  id:string;
   title: string;
   price: number;
-  discountPercent?: number;
   size: ItemSize[];
+  discountPercent?: number;
+  imageList: ProductImage[];
   stock: number;
   reviews: Review[];
 }
@@ -34,4 +35,9 @@ interface Review {
   content: string;
   date?: Date;
   imageUrl?: string;
+}
+
+export interface ProductImage {
+  name: string;
+  url: string;
 }
