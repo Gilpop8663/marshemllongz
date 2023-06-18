@@ -20,7 +20,7 @@ export default function QuantitySelector({
       <button
         onClick={handleDecreaseClick}
         type="button"
-        className="border w-6 h-6 border-r-0 border-primaryBlack flex justify-center items-center md:w-8 md:h-8"
+        className="border w-6 h-6 border-r-0 border-primaryBlack flex justify-center items-center sm:w-8 sm:h-8"
         aria-label={ariaDecreaseLabel}
       >
         <svg
@@ -29,20 +29,20 @@ export default function QuantitySelector({
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-3 h-3 md:w-4 md:h-4"
+          className="w-3 h-3 sm:w-4 sm:h-4"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
         </svg>
       </button>
       <input
-        className="border w-6 h-6 border-primaryBlack text-center text-xs md:w-8 md:h-8 md:text-sm focus:outline-none"
+        className="border w-12 h-6 border-primaryBlack text-center text-xs sm:w-16 sm:h-8 sm:text-sm focus:outline-none"
         value={quantity}
       />
       <button
         onClick={handleIncreaseClick}
         aria-label={ariaIncreaseLabel}
         type="button"
-        className="border w-6 h-6 border-l-0 border-primaryBlack flex justify-center items-center md:w-8 md:h-8"
+        className="border w-6 h-6 border-l-0 border-primaryBlack flex justify-center items-center sm:w-8 sm:h-8"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ export default function QuantitySelector({
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-3 h-3 md:w-4 md:h-4"
+          className="w-3 h-3 sm:w-4 sm:h-4"
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
         </svg>
