@@ -1,5 +1,10 @@
 import { createRandomProductTitle, generateRandomId } from '@utils/mock';
-import { ProductItem, ProductItemPreview } from '@type/productType';
+import {
+  ProductCart,
+  ProductItem,
+  ProductItemPreview,
+  RecommendedProduct,
+} from '@type/productType';
 
 export const MOCK_PREVIEW_PRODUCT_LIST: ProductItemPreview[] = [
   {
@@ -172,3 +177,96 @@ export const MOCK_PRODUCT_DETAIL: ProductItem = {
   stock: 3,
   size: [],
 };
+
+export const MOCK_RECOMMENDED_PRODUCT_LIST: RecommendedProduct[] = [
+  {
+    id: generateRandomId(16),
+    title: createRandomProductTitle(),
+    price: Math.floor(Math.random() * 10000),
+    imageUrl: `https://source.unsplash.com/600x400/?nature,water&sig=${Math.floor(
+      Math.random() * 100
+    )}`,
+    selectedOption: {
+      title: '',
+      selectedItemLabel: { value: '', label: '선택하세요.', description: '' }.label,
+      optionItems: [
+        { value: '', label: '선택하세요.', description: '' },
+        { value: 'option1', label: 'Option 1', description: '' },
+        { value: 'option2', label: 'Option 2', description: '(+ 1,000원)' },
+        { value: 'option3', label: 'Option 3', description: '' },
+      ],
+      handleOptionChange: () => {},
+    },
+  },
+  {
+    id: generateRandomId(16),
+    title: createRandomProductTitle(),
+    price: Math.floor(Math.random() * 10000),
+    imageUrl: `https://source.unsplash.com/600x400/?nature,water&sig=${Math.floor(
+      Math.random() * 100
+    )}`,
+    selectedOption: {
+      title: '',
+      selectedItemLabel: { value: '', label: '선택하세요.', description: '' }.label,
+      optionItems: [
+        { value: '', label: '선택하세요.', description: '' },
+        { value: 'option1', label: 'Option 1', description: '' },
+        { value: 'option2', label: 'Option 2', description: '(+ 1,000원)' },
+        { value: 'option3', label: 'Option 3', description: '' },
+      ],
+      handleOptionChange: () => {},
+    },
+  },
+  {
+    id: generateRandomId(16),
+    title: createRandomProductTitle(),
+    price: Math.floor(Math.random() * 10000),
+    imageUrl: `https://source.unsplash.com/600x400/?nature,water&sig=${Math.floor(
+      Math.random() * 100
+    )}`,
+    selectedOption: {
+      title: '',
+      selectedItemLabel: { value: '', label: '선택하세요.', description: '' }.label,
+      optionItems: [
+        { value: '', label: '선택하세요.', description: '' },
+        { value: 'option1', label: 'Option 1', description: '' },
+        { value: 'option2', label: 'Option 2', description: '(+ 1,000원)' },
+        { value: 'option3', label: 'Option 3', description: '' },
+      ],
+      handleOptionChange: () => {},
+    },
+  },
+];
+
+export const MOCK_PRODUCT_CART: ProductCart[] = [
+  {
+    id: generateRandomId(16),
+    title: createRandomProductTitle(),
+    price: Math.floor(Math.random() * 10000),
+    quantity: Math.floor(Math.random() * 100),
+  },
+  {
+    id: generateRandomId(16),
+    title: createRandomProductTitle(),
+    price: Math.floor(Math.random() * 10000),
+    quantity: Math.floor(Math.random() * 100),
+  },
+  {
+    id: generateRandomId(16),
+    title: createRandomProductTitle(),
+    price: Math.floor(Math.random() * 10000),
+    quantity: Math.floor(Math.random() * 100),
+  },
+  {
+    id: generateRandomId(16),
+    title: createRandomProductTitle(),
+    price: Math.floor(Math.random() * 10000),
+    quantity: Math.floor(Math.random() * 100),
+  },
+  {
+    id: generateRandomId(16),
+    title: createRandomProductTitle(),
+    price: Math.floor(Math.random() * 10000),
+    quantity: Math.floor(Math.random() * 100),
+  },
+];

@@ -1,3 +1,5 @@
+import { SelectProps } from '@components/common/Select';
+
 type ProductCategory = 'new' | 'best';
 
 export interface ProductItemPreview {
@@ -11,7 +13,7 @@ export interface ProductItemPreview {
 }
 
 export interface ProductItem {
-  id:string;
+  id: string;
   title: string;
   price: number;
   size: ItemSize[];
@@ -40,4 +42,19 @@ interface Review {
 export interface ProductImage {
   name: string;
   url: string;
+}
+
+export interface RecommendedProduct {
+  id: string;
+  title: string;
+  price: number;
+  imageUrl: string;
+  selectedOption: SelectProps;
+}
+
+export interface ProductCart {
+  id: string;
+  title: string;
+  price: number;
+  quantity: number;
 }
