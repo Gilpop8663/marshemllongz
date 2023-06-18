@@ -17,6 +17,7 @@ export interface ProductItem {
   title: string;
   price: number;
   size: ItemSize[];
+  rating: number;
   discountPercent?: number;
   imageList: ProductImage[];
   stock: number;

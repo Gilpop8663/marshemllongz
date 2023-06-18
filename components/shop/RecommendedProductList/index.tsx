@@ -9,7 +9,7 @@ interface RecommendedProductListProps {
 export default function RecommendedProductList({
   recommendedProductList,
 }: RecommendedProductListProps) {
-  const [isOpened, setIsOpened] = useState(false);
+  const [isOpened, setIsOpened] = useState(true);
 
   const handleToggleOpenClick = () => {
     setIsOpened((prev) => !prev);
@@ -19,7 +19,7 @@ export default function RecommendedProductList({
     <div>
       <h6 className="text-xs font-medium mb-2">함께 사면 좋은 마시멜롱템</h6>
       <div
-        className="flex justify-between items-center border border-primaryBlack text-sm px-2 py-1 cursor-pointer"
+        className="flex justify-between items-center border border-primaryBlack text-sm px-3 py-2 cursor-pointer"
         onClick={handleToggleOpenClick}
       >
         <span>같이 구매하면 더 귀여울거다 멍!</span>

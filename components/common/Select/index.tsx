@@ -33,7 +33,7 @@ export default function Select({
   return (
     <div className="flex flex-col">
       <div className="relative">
-        <label className="text-xs mb-2" htmlFor={title + optionItems[0].label}>
+        <label className="text-xs mb-2 font-medium" htmlFor={title + optionItems[0].label}>
           {title}
         </label>
         <div

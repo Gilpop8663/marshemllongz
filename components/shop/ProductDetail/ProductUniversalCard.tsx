@@ -8,8 +8,8 @@ interface ProductUniversalCardProps {
 export default function ProductUniversalCard({ title, content }: ProductUniversalCardProps) {
   return (
     <div className="flex justify-between">
-      <span className="text-sm font-medium">{title}</span>
-      <span className="text-sm">{content}</span>
+      <span className="text-xs font-medium">{title}</span>
+      <span className="text-xs">{content}</span>
     </div>
   );
 }

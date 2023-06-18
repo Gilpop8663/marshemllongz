@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch --passWithNoTests",
-    "test:ci": "jest --ci --passWithNoTests",
+    "test": "jest --watch",
+    "test:ci": "jest --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "chromatic --project-token CHROMATIC_PROJECT_TOKEN"

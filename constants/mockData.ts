@@ -173,9 +173,16 @@ export const MOCK_PRODUCT_DETAIL: ProductItem = {
   title: createRandomProductTitle(),
   price: Math.floor(Math.random() * 10000),
   imageList,
-  reviews: [],
+  rating: 3,
+  reviews: [{ category: 'best', content: 'ass', date: new Date(), score: 4, imageUrl: '' }],
   stock: 3,
-  size: [],
+  size: [
+    { label: '선택하세요.', description: '', value: '' },
+    { label: '9.7~11 inch', description: '', value: '' },
+    { label: '12~14 inch', description: '(+6,000원)', value: '' },
+    { label: '15~16 inch', description: '(+16,000원)', value: '' },
+    { label: '17 inch', description: '(+20,000원)', value: '' },
+  ],
 };
 
 export const MOCK_RECOMMENDED_PRODUCT_LIST: RecommendedProduct[] = [
