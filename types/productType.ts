@@ -32,12 +32,14 @@ interface ItemSize {
 
 type ReviewCategory = 'normal' | 'best';
 
-interface Review {
+export interface Review {
+  id: string;
+  name: string;
   category: ReviewCategory;
   score: number;
   content: string;
   date?: Date;
-  imageUrl?: string;
+  imageList?: string[];
 }
 
 export interface ProductImage {

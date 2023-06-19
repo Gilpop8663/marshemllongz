@@ -1,4 +1,5 @@
 import React from 'react';
+import { ProductItemPreview } from '@type/productType';
 import ProductItem from './ProductItem';
 
 interface ProductListProps {
