@@ -21,7 +21,7 @@ export default function ProductReviewItem({ userReview }: ProductReviewItemProps
     <div
       className={getClassNames(
         isActive ? 'flex-col' : 'flex',
-        'justify-between border-t-2 border-b-2 border-primaryBlack py-6 text-primaryBlack gap-3'
+        'justify-between first:border-t-2 border-b-2 border-primaryBlack py-6 text-primaryBlack gap-3'
       )}
       aria-label={`${name} 후기`}
     >

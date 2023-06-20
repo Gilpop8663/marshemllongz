@@ -11,7 +11,7 @@ export default function ProductReviewImage({ isActive, imageList }: ProductRevie
     return (
       <div className="flex flex-col gap-6">
         {imageList.map((imageUrl) => (
-          <div key={imageUrl} className="relative w-full aspect-square ">
+          <div key={imageUrl} className="relative w-1/2 aspect-square">
             <Image src={imageUrl} alt={imageUrl} fill className="object-cover" />
           </div>
         ))}

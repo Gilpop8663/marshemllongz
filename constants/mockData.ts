@@ -311,6 +311,14 @@ export const MOCK_REVIEW_LIST: Review[] = [
   {
     id: generateRandomId(16),
     name: createRandomProductTitle(),
+    category: 'best',
+    content: createRandomProductTitle(),
+    date: new Date(),
+    score: Math.floor(Math.random() * 5),
+  },
+  {
+    id: generateRandomId(16),
+    name: createRandomProductTitle(),
     category: 'normal',
     content: createRandomProductTitle(),
     date: new Date(),
@@ -351,5 +359,29 @@ export const MOCK_REVIEW_LIST: Review[] = [
     imageList: [
       `https://source.unsplash.com/600x400/?nature,water&sig=${Math.floor(Math.random() * 100)}`,
     ],
+  },
+  {
+    id: generateRandomId(16),
+    name: createRandomProductTitle(),
+    category: 'best',
+    content: createRandomProductTitle(),
+    date: new Date(),
+    score: Math.floor(Math.random() * 5),
+  },
+  {
+    id: generateRandomId(16),
+    name: createRandomProductTitle(),
+    category: 'best',
+    content: createRandomProductTitle(),
+    date: new Date(),
+    score: Math.floor(Math.random() * 5),
+  },
+  {
+    id: generateRandomId(16),
+    name: createRandomProductTitle(),
+    category: 'best',
+    content: createRandomProductTitle(),
+    date: new Date(),
+    score: Math.floor(Math.random() * 5),
   },
 ];
