@@ -363,7 +363,7 @@ export const MOCK_REVIEW_LIST: Review[] = [
   {
     id: generateRandomId(16),
     name: createRandomProductTitle(),
-    category: 'best',
+    category: 'normal',
     content: createRandomProductTitle(),
     date: new Date(),
     score: Math.floor(Math.random() * 5),
@@ -371,7 +371,7 @@ export const MOCK_REVIEW_LIST: Review[] = [
   {
     id: generateRandomId(16),
     name: createRandomProductTitle(),
-    category: 'best',
+    category: 'normal',
     content: createRandomProductTitle(),
     date: new Date(),
     score: Math.floor(Math.random() * 5),
@@ -379,7 +379,7 @@ export const MOCK_REVIEW_LIST: Review[] = [
   {
     id: generateRandomId(16),
     name: createRandomProductTitle(),
-    category: 'best',
+    category: 'normal',
     content: createRandomProductTitle(),
     date: new Date(),
     score: Math.floor(Math.random() * 5),
