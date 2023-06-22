@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import HeaderCategory from './HeaderCategory';
+import HeaderMobileCategory from './HeaderMobileCategory';
 
-const meta: Meta<typeof HeaderCategory> = { component: HeaderCategory };
+const meta: Meta<typeof HeaderMobileCategory> = { component: HeaderMobileCategory };
 
 export default meta;
 
-type Story = StoryObj<typeof HeaderCategory>;
+type Story = StoryObj<typeof HeaderMobileCategory>;
 
 export const SHOP: Story = {
   args: {
@@ -20,6 +20,7 @@ export const SHOP: Story = {
       '패브릭/생활',
       'ALL',
     ],
+    initialActive: true,
   },
 };
 
@@ -27,6 +28,7 @@ export const COMMUNITY: Story = {
   args: {
     title: 'COMMUNITY',
     categories: ['공지사항', '언론보도', 'Q&A', '배경화면', '베스트리뷰어'],
+    initialActive: true,
   },
 };
 
@@ -34,5 +36,6 @@ export const ABOUT: Story = {
   args: {
     title: 'ABOUT',
     categories: ['브랜드', '캐릭터', '콜라보레이션', 'Contact'],
+    initialActive: true,
   },
 };

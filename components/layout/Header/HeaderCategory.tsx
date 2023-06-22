@@ -3,10 +3,10 @@ import { getClassNames } from '@utils/common';
 
 interface HeaderCategoryProps {
   title: string;
-  category: string[];
+  categories: string[];
 }
 
-export default function HeaderCategory({ title, category }: HeaderCategoryProps) {
+export default function HeaderCategory({ title, categories }: HeaderCategoryProps) {
   const [isHover, setIsHover] = useState(false);
 
   return (
@@ -26,9 +26,9 @@ export default function HeaderCategory({ title, category }: HeaderCategoryProps)
           'flex flex-col items-start absolute bg-white border p-2 text-xs gap-2 transition-opacity font-medium top-6 -left-2  w-max'
         )}
       >
-        {category.map((item) => (
-          <span key={item} className="hover:text-darkGray cursor-pointer">
-            {item}
+        {categories.map((category) => (
+          <span key={category} className="hover:text-darkGray cursor-pointer">
+            {category}
           </span>
         ))}
       </div>
