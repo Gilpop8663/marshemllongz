@@ -13,7 +13,7 @@ export default function HeaderSearchIcon({ size, ...rest }: HeaderSearchIconProp
         viewBox="0 0 24 24"
         strokeWidth={3}
         stroke="currentColor"
-        className={`w-${size} h-${size} cursor-pointer hover:text-darkGray`}
+        className={`w-${size} h-${size} cursor-pointer  text-primaryBlack hover:text-darkGray`}
       >
         <path
           strokeLinecap="round"

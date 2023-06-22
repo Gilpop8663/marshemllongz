@@ -1,16 +1,16 @@
 import React from 'react';
 
-interface HeaderCartIcon extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface HeaderCartIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size: number;
 }
-export default function HeaderCartIcon({ size, ...rest }: HeaderCartIcon) {
+export default function HeaderCartIcon({ size, ...rest }: HeaderCartIconProps) {
   return (
     <button aria-label="장바구니" {...rest}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="currentColor"
-        className={`w-${size} h-${size}`}
+        className={`w-${size} h-${size} cursor-pointer  text-primaryBlack hover:text-darkGray`}
       >
         <path
           fillRule="evenodd"

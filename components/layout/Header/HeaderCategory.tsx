@@ -23,7 +23,7 @@ export default function HeaderCategory({ title, category }: HeaderCategoryProps)
       <div
         className={getClassNames(
           isHover ? 'opacity-100' : 'opacity-0',
-          'flex flex-col absolute bg-white border p-2 text-xs gap-2 transition-opacity font-medium top-6 -left-2'
+          'flex flex-col items-start absolute bg-white border p-2 text-xs gap-2 transition-opacity font-medium top-6 -left-2  w-max'
         )}
       >
         {category.map((item) => (
