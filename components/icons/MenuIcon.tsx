@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface HeaderMenuIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface MenuIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size: number;
 }
 
-export default function HeaderMenuIcon({ size, ...rest }: HeaderMenuIconProps) {
+export default function MenuIcon({ size, ...rest }: MenuIconProps) {
   return (
-    <button aria-label="메뉴">
+    <button aria-label="메뉴" {...rest}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

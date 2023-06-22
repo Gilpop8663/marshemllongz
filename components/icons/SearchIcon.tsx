@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface HeaderSearchIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface SearchIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size: number;
 }
 
-export default function HeaderSearchIcon({ size, ...rest }: HeaderSearchIconProps) {
+export default function SearchIcon({ size, ...rest }: SearchIconProps) {
   return (
     <button aria-label="검색" {...rest}>
       <svg

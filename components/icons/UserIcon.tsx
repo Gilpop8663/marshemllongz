@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface HeaderUserIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface UserIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size: number;
 }
 
-export default function HeaderUserIcon({ size, ...rest }: HeaderUserIconProps) {
+export default function UserIcon({ size, ...rest }: UserIconProps) {
   return (
     <button aria-label="내 정보" {...rest}>
       <svg

@@ -1,9 +1,9 @@
 import React from 'react';
 
-interface HeaderCartIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface CartIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size: number;
 }
-export default function HeaderCartIcon({ size, ...rest }: HeaderCartIconProps) {
+export default function CartIcon({ size, ...rest }: CartIconProps) {
   return (
     <button aria-label="장바구니" {...rest}>
       <svg
