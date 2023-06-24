@@ -6,4 +6,10 @@
   html {
     font-family: Noto Sans KR, system-ui, sans-serif;
   }
+
+  :where(dialog) {
+    margin: 0;
+    padding: 0;
+    inset: 0;
+  }
 }
