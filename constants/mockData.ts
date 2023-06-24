@@ -190,7 +190,8 @@ export const MOCK_PRODUCT_DETAIL: ProductItem = {
     },
   ],
   stock: 3,
-  size: [
+  optionName: 'size',
+  options: [
     { label: '선택하세요.', description: '', value: '' },
     { label: '9.7~11 inch', description: '', value: '' },
     { label: '12~14 inch', description: '(+6,000원)', value: '' },

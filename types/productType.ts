@@ -2,6 +2,8 @@ import { SelectProps } from '@components/common/Select';
 
 type ProductCategory = 'new' | 'best';
 
+type ProductOptionType = 'design' | 'size';
+
 export interface ProductItemPreview {
   id: string;
   imageUrl: string;
@@ -16,7 +18,8 @@ export interface ProductItem {
   id: string;
   title: string;
   price: number;
-  size: ItemSize[];
+  optionName: ProductOptionType;
+  options: ProductOption[];
   rating: number;
   discountPercent?: number;
   imageList: ProductImage[];
@@ -24,7 +27,7 @@ export interface ProductItem {
   reviews: Review[];
 }
 
-interface ItemSize {
+interface ProductOption {
   value: string;
   label: string;
   description: string;

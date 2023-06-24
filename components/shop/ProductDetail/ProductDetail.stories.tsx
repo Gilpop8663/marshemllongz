@@ -12,16 +12,23 @@ export default meta;
 
 type Story = StoryObj<typeof ProductDetail>;
 
-export const Default: Story = {
+export const SizeOptions: Story = {
   args: {
     productDetail: MOCK_PRODUCT_DETAIL,
     recommendedProductList: MOCK_RECOMMENDED_PRODUCT_LIST,
   },
 };
 
+export const DesignOptions: Story = {
+  args: {
+    productDetail: { ...MOCK_PRODUCT_DETAIL, optionName: 'design' },
+    recommendedProductList: MOCK_RECOMMENDED_PRODUCT_LIST,
+  },
+};
+
 export const NoSize: Story = {
   args: {
-    productDetail: { ...MOCK_PRODUCT_DETAIL, size: [] },
+    productDetail: { ...MOCK_PRODUCT_DETAIL, options: [] },
     recommendedProductList: MOCK_RECOMMENDED_PRODUCT_LIST,
   },
 };
