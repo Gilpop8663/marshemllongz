@@ -5,8 +5,8 @@ import HeaderMobileCategory from './HeaderMobileCategory';
 
 export default function HeaderMobileMenu() {
   return (
-    <div className="flex absolute left-0 top-0 w-full h-max">
-      <div className="bg-primaryWhite w-full p-6 py-8">
+    <div className="relative w-full min-h-screen h-max">
+      <div className="bg-primaryWhite w-full p-6 py-8 scrollbar-hide">
         <div className="flex justify-between">
           <div>마시멜롱즈</div>
           <UserIcon size={6} />
@@ -41,7 +41,6 @@ export default function HeaderMobileMenu() {
           />
         </div>
       </div>
-      <div className="w-16 min-h-screen h-auto bg-black/30"></div>
     </div>
   );
 }

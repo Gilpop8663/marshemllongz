@@ -9,12 +9,12 @@ type Story = StoryObj<typeof HeaderSearch>;
 
 export const Default: Story = {
   args: {
-    isActive: false,
+    isSearchActive: false,
   },
 };
 
 export const SearchMode: Story = {
   args: {
-    isActive: true,
+    isSearchActive: true,
   },
 };

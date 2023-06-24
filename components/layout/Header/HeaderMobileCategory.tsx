@@ -30,9 +30,13 @@ export default function HeaderMobileCategory({
       {isActive && (
         <div className="flex flex-col  gap-2 mt-6 pl-4">
           {categories.map((category) => (
-            <span key={category} className="cursor-pointer p-2 w-max hover:text-darkGray">
+            <button
+              type="button"
+              key={category}
+              className="cursor-pointer p-2 w-max hover:text-darkGray"
+            >
               {category}
-            </span>
+            </button>
           ))}
         </div>
       )}
