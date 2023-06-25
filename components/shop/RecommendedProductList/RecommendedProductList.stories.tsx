@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MOCK_RECOMMENDED_PRODUCT_LIST } from '@constants/mockData';
+import { MOCK_RECOMMENDED_PRODUCT_LIST } from '@constants/mock/productRecommend';
 import RecommendedProductList from '.';
 
 const meta: Meta<typeof RecommendedProductList> = { component: RecommendedProductList };
