@@ -2,7 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import Button from '@components/common/Button';
 import Select from '@components/common/Select';
-import { getFormattedPrice } from '@utils/common';
+import { getFormattedPrice, getPercentageNumber } from '@utils/common';
+import { getDiscountedPrice } from '@utils/shop/common';
 import { ProductItem, RecommendedProduct } from '@type/productType';
 import ProductRating from '../ProductRating';
 import RecommendedProductList from '../RecommendedProductList';
@@ -19,8 +20,20 @@ export default function ProductDetail({
   productDetail,
   recommendedProductList,
 }: ProductDetailProps) {
-  const { id, imageList, rating, price, reviews, size, stock, title, discountPercent } =
-    productDetail;
+  const {
+    id,
+    imageList,
+    rating,
+    price,
+    reviews,
+    optionKind,
+    options,
+    stock,
+    title,
+    discountPercent,
+  } = productDetail;
+
+  const discountedPrice = getDiscountedPrice({ discountPercent, price });
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 text-primaryBlack">
@@ -47,19 +60,19 @@ export default function ProductDetail({
           제주 및 도서 산간 2,000원 추가 "
           />
         </div>
-        {size.length > 0 && (
+        {options.length > 0 && (
           <Select
-            title="사이즈"
-            selectedItemLabel={size[0].label}
+            title={optionKind === 'design' ? '디자인' : '사이즈'}
+            selectedItemLabel={options[0].label}
             handleOptionChange={() => {}}
-            optionItems={size}
+            optionItems={options}
           />
         )}
         <div className="border-b-[1px] border-primaryBlack py-6">
           <RecommendedProductList recommendedProductList={recommendedProductList} />
         </div>
         <div className="border-b-[1px] border-primaryBlack py-12">
-          {size.length === 0 && <ProductCartItem product={{ price, quantity: 1, title, id }} />}
+          {options.length === 0 && <ProductCartItem product={{ price, quantity: 1, title, id }} />}
         </div>
         <div className="flex flex-col gap-3 mt-8">
           <ProductUniversalCard title="주문 수량" content="0개" />

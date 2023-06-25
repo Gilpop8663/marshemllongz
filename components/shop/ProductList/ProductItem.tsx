@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { getClassNames, getFormattedPrice, getPercentageNumber } from '@utils/common';
+import { getDiscountedPrice } from '@utils/shop/common';
 
 type CategoryType = 'new' | 'best';
 
@@ -35,10 +36,7 @@ export default function ProductItem({
     return 'BEST 30';
   };
 
-  const discountPrice =
-    discountPercent && getPercentageNumber({ total: price, percent: discountPercent });
-
-  const discountedPrice = discountPrice && price - Math.round(discountPrice);
+  const discountedPrice = getDiscountedPrice({ discountPercent, price });
 
   return (
     <div className="flex flex-col w-full cursor-pointer">

@@ -190,7 +190,7 @@ export const MOCK_PRODUCT_DETAIL: ProductItem = {
     },
   ],
   stock: 3,
-  optionName: 'size',
+  optionKind: 'size',
   options: [
     { label: '선택하세요.', description: '', value: '' },
     { label: '9.7~11 inch', description: '', value: '' },

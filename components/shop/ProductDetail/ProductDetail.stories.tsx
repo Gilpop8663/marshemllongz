@@ -21,7 +21,7 @@ export const SizeOptions: Story = {
 
 export const DesignOptions: Story = {
   args: {
-    productDetail: { ...MOCK_PRODUCT_DETAIL, optionName: 'design' },
+    productDetail: { ...MOCK_PRODUCT_DETAIL, optionKind: 'design' },
     recommendedProductList: MOCK_RECOMMENDED_PRODUCT_LIST,
   },
 };
@@ -29,6 +29,13 @@ export const DesignOptions: Story = {
 export const NoSize: Story = {
   args: {
     productDetail: { ...MOCK_PRODUCT_DETAIL, options: [] },
+    recommendedProductList: MOCK_RECOMMENDED_PRODUCT_LIST,
+  },
+};
+
+export const Discount: Story = {
+  args: {
+    productDetail: { ...MOCK_PRODUCT_DETAIL, discountPercent: 10 },
     recommendedProductList: MOCK_RECOMMENDED_PRODUCT_LIST,
   },
 };
