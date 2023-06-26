@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from '@components/common/Button';
 import { CartType } from '@type/cartType';
-import CartList from '../CartList';
-import CartOrderSummary from '../CartOrderSummary';
+import CartList from '../../cart/CartList';
+import CartOrderSummary from '../../cart/CartOrderSummary';
 
 interface CartContainerProps {
   cartItems: CartType[];
