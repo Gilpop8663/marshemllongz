@@ -16,8 +16,7 @@ export default function ProductCartItem({ product }: ProductCartItemProps) {
         <span className="text-xs sm:text-sm">{title}</span>
         <QuantitySelector
           quantity={quantity}
-          ariaDecreaseLabel={`${title} 수량 감소`}
-          ariaIncreaseLabel={`${title} 수량 증가`}
+          title={title}
           handleDecreaseClick={() => {}}
           handleIncreaseClick={() => {}}
         />

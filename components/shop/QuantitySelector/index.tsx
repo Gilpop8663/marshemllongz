@@ -4,16 +4,14 @@ interface QuantitySelectorProps {
   quantity: number;
   handleDecreaseClick: () => void;
   handleIncreaseClick: () => void;
-  ariaIncreaseLabel: string;
-  ariaDecreaseLabel: string;
+  title: string;
 }
 
 export default function QuantitySelector({
   quantity,
   handleDecreaseClick,
   handleIncreaseClick,
-  ariaIncreaseLabel,
-  ariaDecreaseLabel,
+  title,
 }: QuantitySelectorProps) {
   return (
     <div className="flex">
@@ -21,7 +19,7 @@ export default function QuantitySelector({
         onClick={handleDecreaseClick}
         type="button"
         className="border w-6 h-6 border-r-0 border-primaryBlack flex justify-center items-center sm:w-8 sm:h-8"
-        aria-label={ariaDecreaseLabel}
+        aria-label={`${title} 수량 감소`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +38,7 @@ export default function QuantitySelector({
       />
       <button
         onClick={handleIncreaseClick}
-        aria-label={ariaIncreaseLabel}
+        aria-label={`${title} 수량 증가`}
         type="button"
         className="border w-6 h-6 border-l-0 border-primaryBlack flex justify-center items-center sm:w-8 sm:h-8"
       >

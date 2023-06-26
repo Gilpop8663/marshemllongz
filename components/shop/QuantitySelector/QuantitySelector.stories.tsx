@@ -10,7 +10,6 @@ type Story = StoryObj<typeof QuantitySelector>;
 export const Default: Story = {
   args: {
     quantity: 1,
-    ariaDecreaseLabel: `OOO 장바구니 수량 감소`,
-    ariaIncreaseLabel: `OOO 장바구니 수량 증가`,
+    title: '마시멜롱 백팩',
   },
 };
