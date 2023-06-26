@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getClassNames } from '@utils/common';
 
 interface OptionItemsProps {
   label: string;
@@ -11,6 +12,7 @@ export interface SelectProps {
   selectedItemLabel: string;
   optionItems: OptionItemsProps[];
   handleOptionChange: () => void;
+  isDisable?: boolean;
 }
 
 export default function Select({
@@ -18,10 +20,12 @@ export default function Select({
   selectedItemLabel,
   optionItems,
   handleOptionChange,
+  isDisable,
 }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
+    if (isDisable) return;
     setIsOpen((prev) => !prev);
   };
 
@@ -37,7 +41,12 @@ export default function Select({
           {title}
         </label>
         <div
-          className="flex justify-between items-center border border-primaryBlack px-3 py-2 text-sm cursor-pointer font-sans "
+          className={getClassNames(
+            isDisable
+              ? 'border-darkGray/50 text-darkGray/50 cursor-not-allowed'
+              : 'border-primaryBlack text-primaryBlack cursor-pointer',
+            'flex justify-between items-center border  px-3 py-2 text-sm  font-sans'
+          )}
           id={title + optionItems[0].label}
           onClick={toggleOpen}
         >

@@ -31,3 +31,15 @@ export const Secondary: Story = {
     handleOptionChange: () => {},
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    selectedItemLabel: '디자인',
+    optionItems: [
+      { value: '', label: '마시멜롱즈', description: '' },
+      { value: '', label: '뮤즈', description: '' },
+    ],
+    handleOptionChange: () => {},
+    isDisable: true,
+  },
+};
