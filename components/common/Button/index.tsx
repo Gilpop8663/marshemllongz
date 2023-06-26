@@ -15,7 +15,7 @@ export default function Button({ text, color, ...rest }: ButtonProps) {
         color === 'white'
           ? 'bg-primaryWhite text-primaryBlack hover:bg-primaryBlack hover:text-primaryWhite'
           : 'bg-primaryBlack text-primaryWhite hover:bg-darkGray hover:border-darkGray',
-        'w-full border border-primaryBlack transition-colors rounded-full py-2 font-normal text-sm'
+        'w-full border border-primaryBlack transition-colors rounded-full py-2 font-normal text-sm px-4'
       )}
       {...rest}
     >

@@ -10,7 +10,7 @@ interface CartOrderSummaryProps {
 export default function CartOrderSummary({ totalPrice, deliveryFee }: CartOrderSummaryProps) {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-4 border-b border-t border-primaryBlack py-4">
+      <div className="flex flex-col gap-4 border-b border-t sm:border-t-0 border-primaryBlack py-4">
         <CartOrderCard label="상품 합계" value={`${getFormattedPrice(totalPrice)}원`} />
         <CartOrderCard
           label="배송비"
