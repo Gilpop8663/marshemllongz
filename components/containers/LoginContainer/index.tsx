@@ -1,14 +1,19 @@
 import React from 'react';
 import Button from '@components/common/Button';
 import Input from '@components/common/Input';
+import Label from '@components/common/Label';
 
 export default function LoginContainer() {
   return (
-    <div className="text-primaryBlack">
+    <div className="max-w-screen-sm mx-auto text-primaryBlack">
       <h3 className="font-medium text-lg mb-8">로그인</h3>
       <div className="flex flex-col gap-4">
-        <Input id="userId" label="아이디 또는 이메일" />
-        <Input id="userPassword" label="비밀번호" type="password" />
+        <Label htmlFor="userId" isRequired label="아이디 또는 이메일">
+          <Input id="userId" required />
+        </Label>
+        <Label htmlFor="userPassword" isRequired label="비밀번호">
+          <Input id="userPassword" required type="password" />
+        </Label>
       </div>
       <div className="mt-4 flex justify-center text-sm">
         <button className="mr-8">비밀번호 찾기</button>
