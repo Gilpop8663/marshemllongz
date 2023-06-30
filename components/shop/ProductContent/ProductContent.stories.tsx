@@ -9,6 +9,7 @@ type Story = StoryObj<typeof ProductContent>;
 
 export const Default: Story = {
   args: {
+    title: '떡볶이',
     contentList: [
       '안녕하세요 제 떡볶이를 먹으려고 하는데, 어떤 사진이 좋을까요?\n\n\n',
       'https://source.unsplash.com/600x400/?nature,water&sig=1',

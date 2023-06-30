@@ -25,6 +25,7 @@ export interface ProductItem {
   imageList: ProductImage[];
   stock: number;
   reviews: Review[];
+  contentList: string[];
 }
 
 interface ProductOption {

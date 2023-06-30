@@ -39,4 +39,11 @@ export const MOCK_PRODUCT_DETAIL: ProductItem = {
     { label: '15~16 inch', description: '(+16,000원)', value: '' },
     { label: '17 inch', description: '(+20,000원)', value: '' },
   ],
+  contentList: [
+    '안녕하세요 제 떡볶이를 먹으려고 하는데, 어떤 사진이 좋을까요?\n\n\n',
+    'https://source.unsplash.com/600x400/?nature,water&sig=1',
+    '이 사진과, ',
+    'https://source.unsplash.com/600x400/?nature,water&sig=1',
+    '이 사진 중 어떤 떡볶이가 맛있을까요? ',
+  ],
 };

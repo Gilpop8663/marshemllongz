@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductContent from '@components/shop/ProductContent';
 import ProductDescription from '@components/shop/ProductDescription';
 import ProductDetail from '@components/shop/ProductDetail';
 import ProductReview from '@components/shop/ProductReview';
@@ -25,10 +26,15 @@ export default function ProductDetailContainer({
         productDetail={productDetail}
         recommendedProductList={recommendedProductList}
       />
-      <div className="mb-8">
-        <ProductDescription reviewListCount={reviewList.length} />
+      <div className="px-48">
+        <div className="mb-8">
+          <ProductDescription reviewListCount={reviewList.length} />
+        </div>
+        <div className="mb-8">
+          <ProductContent title={productDetail.title} contentList={productDetail.contentList} />
+        </div>
+        <ProductReview reviewList={reviewList} score={score} totalPages={totalPages} />
       </div>
-      <ProductReview reviewList={reviewList} score={score} totalPages={totalPages} />
     </div>
   );
 }
