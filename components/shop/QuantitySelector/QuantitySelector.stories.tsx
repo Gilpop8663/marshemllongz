@@ -9,7 +9,8 @@ type Story = StoryObj<typeof QuantitySelector>;
 
 export const Default: Story = {
   args: {
-    quantity: 1,
+    initialQuantity: 1,
     title: '마시멜롱 백팩',
+    stock: 100,
   },
 };

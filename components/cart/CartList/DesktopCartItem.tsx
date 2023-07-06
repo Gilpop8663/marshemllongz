@@ -9,7 +9,7 @@ interface DesktopCartItemProps {
 }
 
 export default function DesktopCartItem({ cart }: DesktopCartItemProps) {
-  const { imageUrl, option, optionKind, price, quantity, title } = cart;
+  const { imageUrl, option, optionKind, price, quantity, title, stock } = cart;
 
   return (
     <div className="hidden sm:grid grid-cols-5 items-center py-6">
@@ -27,12 +27,7 @@ export default function DesktopCartItem({ cart }: DesktopCartItemProps) {
           <button className="flex text-sm self-start">삭제하기</button>
         </div>
       </div>
-      <QuantitySelector
-        quantity={quantity}
-        title={title}
-        handleDecreaseClick={() => {}}
-        handleIncreaseClick={() => {}}
-      />
+      <QuantitySelector initialQuantity={quantity} title={title} stock={stock} />
       <span className="text-sm self-center text-center">{getFormattedPrice(price)}원</span>
     </div>
   );

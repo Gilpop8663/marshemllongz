@@ -8,18 +8,13 @@ interface ProductCartItemProps {
 }
 
 export default function ProductCartItem({ product }: ProductCartItemProps) {
-  const { price, quantity, title } = product;
+  const { price, quantity, title, stock } = product;
 
   return (
     <div className="flex justify-between h-14 sm:h-16">
       <div className="flex flex-col justify-between">
         <span className="text-xs sm:text-sm">{title}</span>
-        <QuantitySelector
-          quantity={quantity}
-          title={title}
-          handleDecreaseClick={() => {}}
-          handleIncreaseClick={() => {}}
-        />
+        <QuantitySelector initialQuantity={quantity} title={title} stock={stock} />
       </div>
       <div className="flex flex-col justify-between items-end ">
         <button aria-label={`${title} 상품 삭제`}>

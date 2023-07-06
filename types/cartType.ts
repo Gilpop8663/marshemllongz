@@ -8,4 +8,5 @@ export interface CartType {
   optionKind: ProductOptionType;
   option: string;
   quantity: number;
+  stock: number;
 }

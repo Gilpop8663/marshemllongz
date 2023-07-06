@@ -5,11 +5,12 @@ interface OptionsParams {
 }
 
 export const useQuantity = (initialCount: number, { stock }: OptionsParams) => {
-  const [quantity, setQuantity] = useState(initialCount);
+  const [quantity, setQuantity] = useState(Math.min(initialCount, stock));
   const quantityInputRef = useRef<HTMLInputElement>(null);
 
   const decreaseQuantity = () => {
     if (quantity === 1) {
+      quantityInputRef.current?.reportValidity();
       quantityInputRef.current?.setCustomValidity('상품의 수량은 최소 1개 이상 있어야 합니다.');
       return;
     }
@@ -20,6 +21,7 @@ export const useQuantity = (initialCount: number, { stock }: OptionsParams) => {
 
   const increaseQuantity = () => {
     if (quantity === stock) {
+      quantityInputRef.current?.reportValidity();
       quantityInputRef.current?.setCustomValidity(`현재 상품의 재고는 ${stock}개 입니다.`);
       return;
     }
@@ -31,12 +33,14 @@ export const useQuantity = (initialCount: number, { stock }: OptionsParams) => {
   const updateQuantity = (count: number) => {
     if (count < 1) {
       setQuantity(1);
+      quantityInputRef.current?.reportValidity();
       quantityInputRef.current?.setCustomValidity('상품의 수량은 최소 1개 이상 있어야 합니다.');
       return;
     }
 
     if (count > stock) {
       setQuantity(stock);
+      quantityInputRef.current?.reportValidity();
       quantityInputRef.current?.setCustomValidity(`현재 상품의 재고는 ${stock}개 입니다.`);
       return;
     }

@@ -64,4 +64,5 @@ export interface ProductCart {
   title: string;
   price: number;
   quantity: number;
+  stock: number;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Button from '@components/common/Button';
 import Select from '@components/common/Select';
-import { getFormattedPrice, getPercentageNumber } from '@utils/common';
+import { getFormattedPrice } from '@utils/common';
 import { getDiscountedPrice } from '@utils/shop/common';
 import { ProductItem, RecommendedProduct } from '@type/productType';
 import ProductRating from '../ProductRating';
@@ -72,7 +72,9 @@ export default function ProductDetail({
           <RecommendedProductList recommendedProductList={recommendedProductList} />
         </div>
         <div className="border-b-[1px] border-primaryBlack py-12">
-          {options.length === 0 && <ProductCartItem product={{ price, quantity: 1, title, id }} />}
+          {options.length === 0 && (
+            <ProductCartItem product={{ price, quantity: 1, title, id, stock }} />
+          )}
         </div>
         <div className="flex flex-col gap-3 mt-8">
           <ProductUniversalCard title="주문 수량" content="0개" />

@@ -12,6 +12,7 @@ export const MOCK_CART_LIST: CartType[] = [
     option: createRandomProductTitle(),
     price: Math.floor(Math.random() * 100000),
     quantity: Math.floor(Math.random() * 100),
+    stock: Math.floor(Math.random() * 100),
   },
   {
     id: generateRandomId(16),
@@ -23,6 +24,7 @@ export const MOCK_CART_LIST: CartType[] = [
     option: createRandomProductTitle(),
     price: Math.floor(Math.random() * 100000),
     quantity: Math.floor(Math.random() * 100),
+    stock: 0
   },
   {
     id: generateRandomId(16),
@@ -34,6 +36,7 @@ export const MOCK_CART_LIST: CartType[] = [
     option: createRandomProductTitle(),
     price: Math.floor(Math.random() * 100000),
     quantity: Math.floor(Math.random() * 100),
+    stock: Math.floor(Math.random() * 100),
   },
   {
     id: generateRandomId(16),
@@ -45,6 +48,7 @@ export const MOCK_CART_LIST: CartType[] = [
     option: createRandomProductTitle(),
     price: Math.floor(Math.random() * 100000),
     quantity: Math.floor(Math.random() * 100),
+    stock: Math.floor(Math.random() * 100),
   },
   {
     id: generateRandomId(16),
@@ -56,6 +60,7 @@ export const MOCK_CART_LIST: CartType[] = [
     option: createRandomProductTitle(),
     price: Math.floor(Math.random() * 100000),
     quantity: Math.floor(Math.random() * 100),
+    stock: Math.floor(Math.random() * 100),
   },
   {
     id: generateRandomId(16),
@@ -67,6 +72,7 @@ export const MOCK_CART_LIST: CartType[] = [
     option: createRandomProductTitle(),
     price: Math.floor(Math.random() * 100000),
     quantity: Math.floor(Math.random() * 100),
+    stock: Math.floor(Math.random() * 100),
   },
   {
     id: generateRandomId(16),
@@ -78,6 +84,7 @@ export const MOCK_CART_LIST: CartType[] = [
     option: createRandomProductTitle(),
     price: Math.floor(Math.random() * 100000),
     quantity: Math.floor(Math.random() * 100),
+    stock: Math.floor(Math.random() * 100),
   },
   {
     id: generateRandomId(16),
@@ -89,6 +96,7 @@ export const MOCK_CART_LIST: CartType[] = [
     option: createRandomProductTitle(),
     price: Math.floor(Math.random() * 100000),
     quantity: Math.floor(Math.random() * 100),
+    stock: Math.floor(Math.random() * 100),
   },
   {
     id: generateRandomId(16),
@@ -100,6 +108,7 @@ export const MOCK_CART_LIST: CartType[] = [
     option: createRandomProductTitle(),
     price: Math.floor(Math.random() * 100000),
     quantity: Math.floor(Math.random() * 100),
+    stock: Math.floor(Math.random() * 100),
   },
   {
     id: generateRandomId(16),
@@ -111,5 +120,6 @@ export const MOCK_CART_LIST: CartType[] = [
     option: createRandomProductTitle(),
     price: Math.floor(Math.random() * 100000),
     quantity: Math.floor(Math.random() * 100),
+    stock: Math.floor(Math.random() * 100),
   },
 ];

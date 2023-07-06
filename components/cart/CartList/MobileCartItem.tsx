@@ -10,7 +10,7 @@ interface MobileCartItemProps {
 }
 
 export default function MobileCartItem({ cart }: MobileCartItemProps) {
-  const { imageUrl, option, optionKind, price, quantity, title } = cart;
+  const { imageUrl, option, optionKind, price, quantity, title, stock } = cart;
 
   return (
     <div className="flex justify-between items-start sm:hidden py-6">
@@ -29,12 +29,7 @@ export default function MobileCartItem({ cart }: MobileCartItemProps) {
             <button className="hidden text-sm self-start">삭제하기</button>
           </div>
           <div className="mt-4">
-            <QuantitySelector
-              quantity={quantity}
-              title={title}
-              handleDecreaseClick={() => {}}
-              handleIncreaseClick={() => {}}
-            />
+            <QuantitySelector initialQuantity={quantity} title={title} stock={stock} />
           </div>
           <span className="mt-2 text-sm">{getFormattedPrice(price)}원</span>
         </div>
