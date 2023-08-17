@@ -1,0 +1,226 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model CoddinkComment {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  projectId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  comment   String   @db.MediumText
+
+  @@index([projectId])
+  @@index([userId])
+}
+
+model CoddinkFollow {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  followerId  Int
+  followingId Int
+
+  @@index([followerId])
+  @@index([followingId])
+}
+
+model CoddinkLike {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  projectId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+
+  @@index([projectId])
+  @@index([userId])
+}
+
+model CoddinkMessage {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  userId    Int
+  message   String   @db.MediumText
+  streamId  Int
+
+  @@index([streamId])
+  @@index([userId])
+}
+
+model CoddinkProject {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  title       String
+  visible     Boolean
+  description String   @db.MediumText
+  thumbnail   String
+  linkURL     String   @default("")
+  isDraft     Boolean  @default(false)
+
+  @@index([userId])
+}
+
+model CoddinkProjectCategory {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+
+  @@index([projectId])
+}
+
+model CoddinkProjectContent {
+  id          Int                        @id @default(autoincrement())
+  projectId   Int
+  kind        CoddinkProjectContent_kind
+  contentIdx  Int
+  description String                     @default(dbgenerated("(_utf8mb4\\'\\')")) @db.MediumText
+  content     String?                    @db.LongText
+  imageSrc    String?
+  fontSize    String?
+  alignText   String?
+  language    String?
+
+  @@index([projectId])
+}
+
+model CoddinkProjectOwner {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  name      String
+  userId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  ownerIdx  Int
+
+  @@index([projectId])
+}
+
+model CoddinkProjectTag {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+
+  @@index([projectId])
+}
+
+model CoddinkProjectTool {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+
+  @@index([projectId])
+}
+
+model CoddinkProjectView {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  userId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+
+  @@index([projectId])
+  @@index([userId])
+}
+
+model CoddinkStream {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime
+  title         String
+  description   String
+  userId        Int
+  tools         String?
+  cloudflareId  String
+  cloudflareUrl String
+  cloudflareKey String
+
+  @@index([userId])
+}
+
+model CoddinkUser {
+  id             Int      @id @default(autoincrement())
+  email          String?  @unique
+  name           String
+  password       String
+  avatar         String?
+  job            String?
+  company        String?
+  country        String?
+  city           String?
+  URL            String?
+  Facebook       String?
+  Youtube        String?
+  Github         String?
+  Twitter        String?
+  Instagram      String?
+  LinkedIn       String?
+  Twitch         String?
+  Dribble        String?
+  introduce      String?  @db.MediumText
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime
+  bannerSrc      String?
+  bannerPosition String?
+}
+
+model HobbyEmail {
+  id        Int      @id @default(autoincrement())
+  email     String
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
+model TutorClass {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  image     String
+  name      String
+  price     Int
+  tag1      String
+  tag2      String
+  tag3      String
+  summary   String   @db.MediumText
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
+model TutorToken {
+  id        Int      @id @default(autoincrement())
+  payload   String
+  phone     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
+model TutorUser {
+  id        Int      @id @default(autoincrement())
+  nickname  String   @unique
+  email     String   @unique
+  password  String
+  phone     String   @unique
+  avatar    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
+enum CoddinkProjectContent_kind {
+  text
+  image
+  code
+}
