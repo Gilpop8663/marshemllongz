@@ -1,3 +1,108 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "prettier",
+    "next/core-web-vitals",
+    "plugin:storybook/recommended"
+  ],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "type",
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "unknown"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "next*",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "react*",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "next/*",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@app/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@prisma/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@recoil/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@hooks/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@libs/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@pages/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@components/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@utils/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@constants/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@type/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@assets/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@styles/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "alphabetize": {
+          "caseInsensitive": true,
+          "order": "asc"
+        },
+        "pathGroupsExcludedImportTypes": []
+      }
+    ]
+  }
 }
