@@ -5,7 +5,7 @@ const DEFAULT_QUANTITY = 1;
 const DEFAULT_STOCK = 1000;
 
 describe('수량 조절하는 훅이 올바르게 작동한다.', () => {
-  test('보여지는 초기 수량 설정이 가능해야 한다. ', () => {
+  test('보여지는 초기 수량 설정이 가능해야 한다.', () => {
     const count = 3;
 
     const { result } = renderHook(() => useQuantity(count, { stock: DEFAULT_STOCK }));
@@ -15,7 +15,7 @@ describe('수량 조절하는 훅이 올바르게 작동한다.', () => {
     expect(quantity).toBe(count);
   });
 
-  test('초기 수량이 재고보다 크다면 초기 수량을 재고로 설정한다. ', () => {
+  test('초기 수량이 재고보다 크다면 초기 수량을 재고로 설정한다.', () => {
     const stock = 1;
     const count = 3;
 
