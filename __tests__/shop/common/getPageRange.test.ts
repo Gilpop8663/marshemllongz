@@ -15,7 +15,7 @@ describe('getPageRange 함수는 currentPage와 totalPages를 입력받아 시�
   ])(
     'currentPage가 %i이고 totalPages가 %i인 경우, 시작 페이지와 끝 페이지는 %s이어야 합니다.',
     (currentPage, totalPages, expected) => {
-      expect(getPageRange({currentPage, totalPages})).toEqual(expected);
+      expect(getPageRange({ currentPage, totalPages })).toEqual(expected);
     }
   );
 });

@@ -32,7 +32,8 @@
       "@constants/*": ["./constants/*"],
       "@type/*": ["./types/*"],
       "@assets/*": ["./assets/*"],
-      "@styles/*": ["./styles/*"]
+      "@styles/*": ["./styles/*"],
+      "@tests/*": ["./__tests__/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js"],
