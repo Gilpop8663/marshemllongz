@@ -1,6 +1,6 @@
 import { createCategory, modifyCategory } from '@backend/api/admin/category';
 import { CATEGORY_ERROR_MESSAGE, CATEGORY_MAX_LENGTH } from '@backend/constants/category';
-import { prismaMock } from '@tests/singleton';
+import { prismaMock } from 'singleton';
 
 describe('운영자 카테고리 등록 기능을 구현한다.', () => {
   test('이름, 설명을 추가하여 카테고리 등록한다.', async () => {

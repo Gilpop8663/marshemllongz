@@ -5,9 +5,9 @@ const createJestConfig = nextJest({
 });
 
 const customJestConfig = {
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js', '<rootDir>/__tests__/singleton.ts'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js', '<rootDir>/singleton.ts'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
+    singleton: '<rootDir>/singleton.ts',
     '^@app/(.*)$': '<rootDir>/app/$1',
     '^@prisma/(.*)$': '<rootDir>/prisma/$1',
     '^@recoil/(.*)$': '<rootDir>/recoil/$1',
