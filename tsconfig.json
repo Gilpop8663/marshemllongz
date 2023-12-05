@@ -33,6 +33,7 @@
       "@type/*": ["./types/*"],
       "@assets/*": ["./assets/*"],
       "@styles/*": ["./styles/*"],
+      "@backend/*": ["./backend/*"],
       "@tests/*": ["./__tests__/*"]
     }
   },
