@@ -5,9 +5,9 @@ const createJestConfig = nextJest({
 });
 
 const customJestConfig = {
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js', '<rootDir>/singleton.ts'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
+    singleton: '<rootDir>/singleton.ts',
     '^@app/(.*)$': '<rootDir>/app/$1',
     '^@prisma/(.*)$': '<rootDir>/prisma/$1',
     '^@recoil/(.*)$': '<rootDir>/recoil/$1',
@@ -20,6 +20,7 @@ const customJestConfig = {
     '^@type/(.*)$': '<rootDir>/types/$1',
     '^@assets/(.*)$': '<rootDir>/assets/$1',
     '^@styles/(.*)$': '<rootDir>/styles/$1',
+    '^@backend/(.*)$': '<rootDir>/backend/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
 };

@@ -1,0 +1,9 @@
+export const CATEGORY_MAX_LENGTH = {
+  NAME: 30,
+  DESCRIPTION: 50,
+};
+
+export const CATEGORY_ERROR_MESSAGE = {
+  NAME: `이름은 ${CATEGORY_MAX_LENGTH.NAME}글자 이하여야 합니다.`,
+  DESCRIPTION: `설명은 ${CATEGORY_MAX_LENGTH.DESCRIPTION}글자 이하여야 합니다.`,
+};

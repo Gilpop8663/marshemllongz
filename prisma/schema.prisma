@@ -224,3 +224,10 @@ enum CoddinkProjectContent_kind {
   image
   code
 }
+
+model RecipeCategory{
+  id Int @id @default(autoincrement())
+  name String
+  description String?
+  isVisible Boolean @default(true) 
+}
