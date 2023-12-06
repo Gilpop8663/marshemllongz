@@ -2,12 +2,12 @@
  * @jest-environment node
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextApiRequest, NextApiResponse } from 'next';
 import { createMocks, createRequest, createResponse } from 'node-mocks-http';
 import { GET, POST } from '@app/health-check/route';
 
-type ApiRequest = NextRequest & ReturnType<typeof createRequest>;
-type APiResponse = NextResponse & ReturnType<typeof createResponse>;
+type ApiRequest = NextApiRequest & ReturnType<typeof createRequest>;
+type APiResponse = NextApiResponse & ReturnType<typeof createResponse>;
 
 describe('서버의 상태를 확인한다.', () => {
   it('health-check api를 호출한다.', async () => {
@@ -35,7 +35,7 @@ describe('서버의 상태를 확인한다.', () => {
 
     const response = await POST(req);
 
-    expect(await response.json()).toBe('health-check');
+    expect(await response.json()).toBe('Add your name in the body');
     expect(response.status).toBe(201);
     expect(response.statusText).toBe('CREATED');
   });

@@ -1,11 +1,11 @@
-import { NextApiRequest } from 'next';
+import { NextApiRequest, NextApiResponse } from 'next';
 import { NextRequest, NextResponse } from 'next/server';
 import { createCategory } from '@backend/api/admin/category';
 
 interface CategoryApiRequest extends NextApiRequest {
   body: {
     name: string;
-    description: string;
+    description?: string;
   };
 }
 

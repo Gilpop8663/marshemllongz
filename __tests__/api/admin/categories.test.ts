@@ -2,8 +2,7 @@
  * @jest-environment node
  */
 
-import { NextApiRequest } from 'next';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextApiRequest, NextApiResponse } from 'next';
 import { createMocks, createRequest, createResponse } from 'node-mocks-http';
 import { prismaMock } from 'singleton';
 import { PUT } from '@app/admin/categories/[slug]/route';
@@ -22,7 +21,7 @@ const CATEGORY_INFO_RESULT = {
 };
 
 type ApiRequest = NextApiRequest & ReturnType<typeof createRequest>;
-type APiResponse = NextResponse & ReturnType<typeof createResponse>;
+type APiResponse = NextApiResponse & ReturnType<typeof createResponse>;
 
 describe('카테고리 등록 api를 호출한다.', () => {
   beforeEach(() => {
@@ -42,5 +41,28 @@ describe('카테고리 등록 api를 호출한다.', () => {
     expect(response.status).toBe(201);
     expect(response.statusText).toBe('CREATED');
     expect(response.headers.get('location')).toBe('/categories/1');
+  });
+});
+
+describe('카테고리 수정 api를 호출한다.', () => {
+  beforeEach(() => {
+    prismaMock.recipeCategory.update.mockResolvedValue(CATEGORY_INFO_RESULT);
+  });
+
+  it('카테고리 수정을 한다.', async () => {
+    const { req } = createMocks<ApiRequest, APiResponse>({
+      method: 'POST',
+      body: {
+        ...CATEGORY_INFO,
+        isVisible: true,
+      },
+    });
+
+    const response = await PUT(req, { params: { slug: '1' } });
+
+    if (!response) return;
+
+    expect(response.status).toBe(200);
+    expect(response.statusText).toBe('OK');
   });
 });

@@ -1,15 +1,24 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextApiRequest } from 'next';
+import { NextResponse } from 'next/server';
 import { modifyCategory } from '@backend/api/admin/category';
 
-export async function PUT(request: NextRequest, { params }: { params: { slug: string } }) {
-  const { name, description, isVisible } = await request.json();
+interface CategoryRequest extends NextApiRequest {
+  body: {
+    name: string;
+    description?: string;
+    isVisible: boolean;
+  };
+}
+
+export async function PUT(request: CategoryRequest, { params }: { params: { slug: string } }) {
+  const { name, description, isVisible } = request.body;
 
   const slug = Number(params.slug);
 
   try {
     await modifyCategory({ id: slug, name, description, isVisible });
 
-    return NextResponse.json({
+    return NextResponse.json('', {
       status: 200,
       statusText: 'OK',
     });
