@@ -1,17 +1,14 @@
-import { NextApiRequest } from 'next';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { modifyCategory } from '@backend/api/admin/category';
 
-interface CategoryRequest extends NextApiRequest {
-  body: {
-    name: string;
-    description?: string;
-    isVisible: boolean;
-  };
+interface CategoryRequest {
+  name: string;
+  description?: string;
+  isVisible: boolean;
 }
 
-export async function PUT(request: CategoryRequest, { params }: { params: { slug: string } }) {
-  const { name, description, isVisible } = request.body;
+export async function PUT(request: NextRequest, { params }: { params: { slug: string } }) {
+  const { name, description, isVisible }: CategoryRequest = await request.json();
 
   const slug = Number(params.slug);
 

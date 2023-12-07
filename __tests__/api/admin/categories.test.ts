@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 import { createMocks, createRequest, createResponse } from 'node-mocks-http';
 import { prismaMock } from 'singleton';
 import { PUT } from '@app/admin/categories/[slug]/route';
@@ -20,8 +20,8 @@ const CATEGORY_INFO_RESULT = {
   isVisible: true,
 };
 
-type ApiRequest = NextApiRequest & ReturnType<typeof createRequest>;
-type APiResponse = NextApiResponse & ReturnType<typeof createResponse>;
+type ApiRequest = NextRequest & ReturnType<typeof createRequest>;
+type APiResponse = NextResponse & ReturnType<typeof createResponse>;
 
 describe('카테고리 등록 api를 호출한다.', () => {
   beforeEach(() => {
@@ -31,7 +31,7 @@ describe('카테고리 등록 api를 호출한다.', () => {
   it('카테고리 등록을 한다.', async () => {
     const { req } = createMocks<ApiRequest, APiResponse>({
       method: 'POST',
-      body: CATEGORY_INFO,
+      json: () => CATEGORY_INFO,
     });
 
     const response = await POST(req);
@@ -46,10 +46,7 @@ describe('카테고리 등록 api를 호출한다.', () => {
   it('카테고리 등록에 실패한다.', async () => {
     const { req } = createMocks<ApiRequest, APiResponse>({
       method: 'POST',
-      body: {
-        ...CATEGORY_INFO,
-        name: 'qweojqwjepoqwejqpowjeaaasasdasdas',
-      },
+      json: () => ({ ...CATEGORY_INFO, name: 'dwqjpdfiowqfhpqwfhpqwhfpqwhfiqpwfhwpi' }),
     });
 
     const response = await POST(req);
@@ -69,10 +66,10 @@ describe('카테고리 수정 api를 호출한다.', () => {
   it('카테고리 수정을 한다.', async () => {
     const { req } = createMocks<ApiRequest, APiResponse>({
       method: 'PUT',
-      body: {
+      json: () => ({
         ...CATEGORY_INFO,
         isVisible: true,
-      },
+      }),
     });
 
     const response = await PUT(req, { params: { slug: '1' } });
@@ -86,11 +83,11 @@ describe('카테고리 수정 api를 호출한다.', () => {
   it('카테고리 수정에 실패한다.', async () => {
     const { req } = createMocks<ApiRequest, APiResponse>({
       method: 'PUT',
-      body: {
+      json: () => ({
         ...CATEGORY_INFO,
         name: 'wqpodhjpqwdhjpqwdhpoqwhdpqwhpqowhpwqdpqhd',
         isVisible: true,
-      },
+      }),
     });
 
     const response = await PUT(req, { params: { slug: '1' } });

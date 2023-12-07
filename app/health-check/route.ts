@@ -1,18 +1,15 @@
-import { NextApiRequest } from 'next';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: NextApiRequest) {
+export async function GET(request: NextRequest) {
   return NextResponse.json('health-check', { status: 200, statusText: 'OK' });
 }
 
-interface HealthRequest extends NextApiRequest {
-  body: {
-    name: string;
-  };
+interface HealthRequest {
+  name: string;
 }
 
-export async function POST(request: HealthRequest) {
-  const { name } = request.body;
+export async function POST(request: NextRequest) {
+  const { name }: HealthRequest = await request.json();
 
   return NextResponse.json(name, { status: 201, statusText: 'CREATED' });
 }
