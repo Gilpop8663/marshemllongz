@@ -1,16 +1,13 @@
-import { NextApiRequest, NextApiResponse } from 'next';
 import { NextRequest, NextResponse } from 'next/server';
 import { createCategory } from '@backend/api/admin/category';
 
-interface CategoryApiRequest extends NextApiRequest {
-  body: {
-    name: string;
-    description?: string;
-  };
+interface CategoryApiRequest {
+  name: string;
+  description?: string;
 }
 
-export async function POST(request: CategoryApiRequest) {
-  const { name, description } = request.body;
+export async function POST(request: NextRequest) {
+  const { name, description }: CategoryApiRequest = await request.json();
 
   try {
     const result = await createCategory({ name, description });

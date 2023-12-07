@@ -2,16 +2,22 @@ import React from 'react';
 import Link from 'next/link';
 import { CATEGORY_MAX_LENGTH } from '@backend/constants/category';
 import { BASE_PATH } from '@backend/constants/path';
+import { UseTextProps } from '@hooks/useText';
 import Button from '@components/common/Button';
 import Input from '@components/common/Input';
 import Label from '@components/common/Label';
 
+type CategoryRegisterKind = 'register' | 'edit';
+type CategoryForm = 'name' | 'description';
+
 interface CategoryRegisterFormProps {
-  kind: 'register' | 'edit';
+  formData: Record<CategoryForm, UseTextProps>;
+  kind: CategoryRegisterKind;
   handleRegisterClick: () => void;
 }
 
 export default function CategoryRegisterForm({
+  formData,
   kind,
   handleRegisterClick,
 }: CategoryRegisterFormProps) {
@@ -19,13 +25,17 @@ export default function CategoryRegisterForm({
   const title = isEdit ? '카테고리 수정' : '카테고리 등록';
 
   return (
-    <form className="flex flex-col gap-6">
-      <span>{title}</span>
+    <div className="flex flex-col gap-6 max-w-lg w-full">
+      <span className="text-xl font-bold">{title}</span>
       <Label isRequired label="카테고리 이름">
-        <Input id="name" maxLength={CATEGORY_MAX_LENGTH.NAME} />
+        <Input autoFocus id="name" maxLength={CATEGORY_MAX_LENGTH.NAME} {...formData.name} />
       </Label>
       <Label isRequired={false} label="카테고리 설명">
-        <Input id="description" maxLength={CATEGORY_MAX_LENGTH.DESCRIPTION} />
+        <Input
+          id="description"
+          maxLength={CATEGORY_MAX_LENGTH.DESCRIPTION}
+          {...formData.description}
+        />
       </Label>
       {isEdit && (
         <Label isRequired label="회원에게 공개 여/부" id="isVisible">
@@ -44,11 +54,11 @@ export default function CategoryRegisterForm({
       <div className="flex justify-end">
         <div className="flex gap-4 w-64">
           <Link href={BASE_PATH.ADMIN} className="w-full">
-            <Button color="white" text="취소" />
+            <Button color="white" text="취소" type="button" />
           </Link>
-          <Button color="black" text="등록" onClick={handleRegisterClick} />
+          <Button color="black" text="등록" type="submit" onClick={handleRegisterClick} />
         </div>
       </div>
-    </form>
+    </div>
   );
 }

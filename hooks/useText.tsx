@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
-export const useText = (originalText: string) => {
+export interface UseTextProps {
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
+}
+
+export const useText = (originalText: string, limit: number) => {
   const [text, setText] = useState(originalText);
 
-  const handleTextChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
-    limit: number
-  ) => {
+  const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     const { value } = event.target;
     const standard = value.length;
 
@@ -20,9 +22,5 @@ export const useText = (originalText: string) => {
     event.target.setCustomValidity('');
   };
 
-  const resetText = () => {
-    setText('');
-  };
-
-  return { value: text, onChange: handleTextChange, resetText };
+  return { value: text, onChange: handleTextChange };
 };

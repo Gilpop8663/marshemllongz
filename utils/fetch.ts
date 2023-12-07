@@ -1,9 +1,11 @@
+const headers = {
+  'Content-Type': 'application/json',
+};
+
 export const getFetch = async <T>(url: string): Promise<T> => {
   const response = await fetch(url, {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers,
   });
 
   if (!response.ok) {
@@ -17,6 +19,7 @@ export const postFetch = async <T>(url: string, body: T): Promise<string | null>
   const response = await fetch(url, {
     method: 'POST',
     body: JSON.stringify(body),
+    headers,
   });
 
   if (!response.ok) {
@@ -30,6 +33,7 @@ export const putFetch = async <T>(url: string, body: T) => {
   const response = await fetch(url, {
     method: 'PUT',
     body: JSON.stringify(body),
+    headers,
   });
 
   if (!response.ok) {
@@ -41,6 +45,7 @@ export const patchFetch = async <T>(url: string, body: T) => {
   const response = await fetch(url, {
     method: 'PATCH',
     body: JSON.stringify(body),
+    headers,
   });
 
   if (!response.ok) {
