@@ -6,7 +6,7 @@ interface CreateCategory {
 }
 
 export const createCategory = async ({ name, description }: CreateCategory) => {
-  await postFetch('/admin/categories', {
+  await postFetch<CreateCategory>('/admin/categories', {
     name,
     description,
   });

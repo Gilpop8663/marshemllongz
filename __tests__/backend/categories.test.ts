@@ -46,15 +46,8 @@ describe('비회원 카테고리 조회 기능을 구현한다.', () => {
       description: '다들 마스킹테이프 필요하지 않으세요?',
     };
 
-    const result = {
-      id: 1,
-      name: '스티커/마스킹테이프',
-      description: '다들 마스킹테이프 필요하지 않으세요?',
-      quantity: 0,
-    };
-
     prismaMock.recipeCategory.findUnique.mockResolvedValue(CATEGORY_INFO_RESULT);
 
-    await expect(getCategoryDetail(1)).resolves.toEqual(result);
+    await expect(getCategoryDetail(1)).resolves.toEqual(CATEGORY_INFO_RESULT);
   });
 });

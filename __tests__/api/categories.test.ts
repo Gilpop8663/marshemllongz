@@ -44,12 +44,7 @@ const result = [
 describe('비회원 카테고리 목록 조회를 한다.', () => {
   beforeEach(() => {
     prismaMock.recipeCategory.findMany.mockResolvedValue(CATEGORY_INFO_RESULT);
-    prismaMock.recipeCategory.findUnique.mockResolvedValue({
-      id: 1,
-      isVisible: true,
-      name: '스티커/마스킹테이프',
-      description: '다들 마스킹테이프 필요하지 않으세요?',
-    });
+    prismaMock.recipeCategory.findUnique.mockResolvedValue(CATEGORY_INFO_RESULT[0]);
   });
 
   test('비회원 카테고리 목록 조회 api를 호출한다.', async () => {
@@ -75,16 +70,9 @@ describe('비회원 카테고리 목록 조회를 한다.', () => {
       },
     });
 
-    const DETAIL_RESULT = {
-      id: 1,
-      name: '스티커/마스킹테이프',
-      description: '다들 마스킹테이프 필요하지 않으세요?',
-      quantity: 0,
-    };
-
     const response = await getCategoryDetail(req, { params: { slug: '1' } });
 
-    expect(await response?.json()).toEqual(DETAIL_RESULT);
+    expect(await response?.json()).toEqual(CATEGORY_INFO_RESULT[0]);
     expect(response?.status).toBe(200);
     expect(response?.statusText).toBe('OK');
   });

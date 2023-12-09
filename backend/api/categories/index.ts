@@ -24,7 +24,6 @@ export const getCategoryDetail = async (id: number) => {
   const category = await prisma.recipeCategory.findUnique({
     where: {
       id,
-      isVisible: true,
     },
   });
 
@@ -32,5 +31,5 @@ export const getCategoryDetail = async (id: number) => {
     throw new Error('찾는 카테고리가 없습니다.');
   }
 
-  return transformCategoryResponse(category);
+  return category;
 };

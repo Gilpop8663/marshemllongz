@@ -5,7 +5,7 @@ export interface UseTextProps {
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
 }
 
-export const useText = (originalText: string, limit: number) => {
+export const useText = (originalText: string = '', limit: number) => {
   const [text, setText] = useState(originalText);
 
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
