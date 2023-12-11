@@ -9,9 +9,9 @@ import { useText } from '@hooks/useText';
 import CategoryRegisterForm from '@components/admin/CategoryRegisterForm';
 
 export default function CategoryRegister() {
+  const { push } = useRouter();
   const name = useText('', CATEGORY_MAX_LENGTH.NAME);
   const description = useText('', CATEGORY_MAX_LENGTH.DESCRIPTION);
-  const { push } = useRouter();
 
   const handleRegisterClick = async () => {
     await createCategory({ name: name.value, description: description.value });

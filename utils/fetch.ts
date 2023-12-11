@@ -2,10 +2,18 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-export const getFetch = async <T>(url: string): Promise<T> => {
+export const getFetch = async <T>(
+  url: string,
+  options?: {
+    cache?: 'force-cache' | 'no-store';
+    revalidate?: false | number;
+  }
+): Promise<T> => {
   const response = await fetch(url, {
     method: 'GET',
     headers,
+    cache: options?.cache,
+    next: { revalidate: options?.revalidate },
   });
 
   if (!response.ok) {

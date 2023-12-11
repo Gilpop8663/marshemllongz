@@ -5,8 +5,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createMocks, createRequest, createResponse } from 'node-mocks-http';
 import { prismaMock } from 'singleton';
-import { PUT } from '@app/admin/categories/[slug]/route';
-import { POST } from '@app/admin/categories/route';
+import { PUT } from '@app/api/admin/categories/[slug]/route';
+import { POST } from '@app/api/admin/categories/route';
 
 const CATEGORY_INFO = {
   name: '반창고',

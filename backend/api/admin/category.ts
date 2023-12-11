@@ -1,7 +1,7 @@
 import { validateCategory } from '@backend/utils/validate';
 import prisma from '@libs/prisma/client';
 
-interface CreateCategory {
+export interface CreateCategory {
   name: string;
   description?: string;
 }
@@ -12,7 +12,7 @@ export const createCategory = async ({ name, description }: CreateCategory) => {
   return await prisma.recipeCategory.create({ data: { name, description } });
 };
 
-interface ModifyCategory {
+export interface ModifyCategory {
   id: number;
   name: string;
   description?: string;

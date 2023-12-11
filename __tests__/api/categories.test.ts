@@ -5,8 +5,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createMocks, createRequest, createResponse } from 'node-mocks-http';
 import { prismaMock } from 'singleton';
-import { GET as getCategoryDetail } from '@app/categories/[slug]/route';
-import { GET as getCategoryList } from '@app/categories/route';
+import { GET as getCategoryDetail } from '@app/api/categories/[slug]/route';
+import { GET as getCategoryList } from '@app/api/categories/route';
 
 type ApiRequest = NextRequest & ReturnType<typeof createRequest>;
 type APiResponse = NextResponse & ReturnType<typeof createResponse>;

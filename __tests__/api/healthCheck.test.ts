@@ -4,7 +4,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createMocks, createRequest, createResponse } from 'node-mocks-http';
-import { GET, POST } from '@app/health-check/route';
+import { GET, POST } from '@app/api/health-check/route';
 
 type ApiRequest = NextRequest & ReturnType<typeof createRequest>;
 type APiResponse = NextResponse & ReturnType<typeof createResponse>;
