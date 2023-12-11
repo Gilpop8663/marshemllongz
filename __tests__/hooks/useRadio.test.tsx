@@ -1,5 +1,4 @@
-import { renderHook } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { fireEvent, render, renderHook, screen } from '@testing-library/react';
 import { useRadio } from '@hooks/useRadio';
 
 type RadioType = 'visible' | 'hidden';
@@ -8,22 +7,21 @@ describe('input의 radio를 제어하는 훅을 테스트한다.', () => {
   test('초기 값을 설정할 수 있다.', () => {
     const { result } = renderHook(() => useRadio<RadioType>('visible'));
 
-    const { value } = result.current;
+    const { state } = result.current;
 
-    expect(value).toBe('visible');
+    expect(state).toBe('visible');
   });
 
   test('타겟의 값을 변경할 수 있다.', () => {
     const { result } = renderHook(() => useRadio<RadioType>('visible'));
 
-    const { changeRadio } = result.current;
+    const { onChange } = result.current;
+    render(<input type="radio" value="hidden" onChange={onChange} alt="radio" />);
 
-    act(() => {
-      changeRadio('hidden');
-    });
+    fireEvent.click(screen.getByAltText('radio'));
 
-    const { value } = result.current;
+    const { state } = result.current;
 
-    expect(value).toBe('hidden');
+    expect(state).toBe('hidden');
   });
 });
