@@ -227,7 +227,7 @@ enum CoddinkProjectContent_kind {
 
 model RecipeCategory{
   id Int @id @default(autoincrement())
-  name String
+  name String @unique
   description String?
   isVisible Boolean @default(true) 
 }
