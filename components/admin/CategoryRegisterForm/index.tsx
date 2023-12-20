@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import Link from 'next/link';
 import { CATEGORY_MAX_LENGTH } from '@backend/constants/category';
-import { BASE_PATH } from '@backend/constants/path';
+import { PATH } from '@backend/constants/path';
 import { UseTextProps } from '@hooks/useText';
 import Button from '@components/common/Button';
 import Input from '@components/common/Input';
@@ -73,7 +73,7 @@ export default function CategoryRegisterForm({
       )}
       <div className="flex justify-end">
         <div className="flex gap-4 w-64">
-          <Link href={BASE_PATH.ADMIN} className="w-full">
+          <Link href={PATH.ADMIN_CATEGORY} className="w-full">
             <Button color="white" text="취소" type="button" />
           </Link>
           <Button color="black" text={kindText} type="submit" onClick={handleRegisterClick} />

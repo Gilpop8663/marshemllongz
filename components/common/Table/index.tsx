@@ -18,16 +18,21 @@ export default function Table<T extends string>({ itemList, labelList }: Props<T
   const fractionalUnitInfo = labelList.reduce((acc, cur) => {
     return { ...acc, [cur.value]: cur.gridFractionalUnit };
   }, {}) as Record<T, FractionalUnit>;
+  const totalFractional = labelList.reduce((acc, cur) => {
+    return acc + cur.gridFractionalUnit;
+  }, 0);
 
   const isEmpty = itemList.length === 0;
 
   return (
     <table className="bg-white w-full  rounded-md shadow-md overflow-x-auto">
       <thead className="">
-        <tr className="border-b py-2 bg-purple-100 text-gray-600 font-bold grid grid-flow-col  gap-6 rounded-t-md px-4">
+        <tr
+          className={`border-b py-2 bg-purple-100 text-gray-600 font-bold grid grid-cols-${totalFractional} gap-6 rounded-t-md px-4`}
+        >
           {labelList.map((label) => (
             <th
-              className={`w-full col-span-${label.gridFractionalUnit}`}
+              className={`col-span-${label.gridFractionalUnit}`}
               scope="col"
               key={label.value}
               align="center"
@@ -42,17 +47,17 @@ export default function Table<T extends string>({ itemList, labelList }: Props<T
         {itemList.map((item) => {
           return (
             <tr
-              className="grid grid-flow-col gap-6 bg-white py-3 border-b px-4 "
+              className={`grid grid-cols-${totalFractional} gap-6 bg-white py-3 border-b px-4`}
               key={item[headerValueList[0]]?.toString()}
             >
               {headerValueList.map((t, index) => {
                 if (index === 0) {
                   return (
                     <th
-                      className={`w-full col-span-${fractionalUnitInfo[t]}`}
+                      className={`col-span-${fractionalUnitInfo[t]}`}
                       scope="row"
-                      align="center"
                       key={t}
+                      align="center"
                     >
                       {item[t]}
                     </th>
@@ -61,9 +66,9 @@ export default function Table<T extends string>({ itemList, labelList }: Props<T
 
                 return (
                   <td
-                    className={`w-full col-span-${fractionalUnitInfo[t]} last:rounded-b-md`}
-                    align="center"
+                    className={`col-span-${fractionalUnitInfo[t]} last:rounded-b-md`}
                     key={t}
+                    align="center"
                   >
                     {item[t]}
                   </td>

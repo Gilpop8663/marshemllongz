@@ -5,5 +5,6 @@ export const BASE_PATH = {
 
 export const PATH = {
   ...BASE_PATH,
-  ADMIN_CATEGORY_REGISTER: `${BASE_PATH.ADMIN}/register`,
+  ADMIN_CATEGORY: `${BASE_PATH.ADMIN}/categories`,
+  ADMIN_CATEGORY_REGISTER: `${BASE_PATH.ADMIN}/categories/register`,
 };
