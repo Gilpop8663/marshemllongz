@@ -1,4 +1,6 @@
 import React, { ReactNode } from 'react';
+import { usePagination } from '@hooks/usePagination';
+import { getClassNames } from '@utils/common';
 
 const UNIT = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const;
 
@@ -18,7 +20,18 @@ export default function Table<T extends string>({ itemList, labelList }: Props<T
   const fractionalUnitInfo = labelList.reduce((acc, cur) => {
     return { ...acc, [cur.value]: cur.gridFractionalUnit };
   }, {}) as Record<T, FractionalUnit>;
+  const {
+    fetchNextPage,
+    fetchPrevPage,
+    getPageNumberList,
+    page,
+    hasPrevPage,
+    checkNextPage,
+    setPage,
+  } = usePagination();
 
+  const totalPage = 12;
+  const hasNextPage = checkNextPage(totalPage);
   const isEmpty = itemList.length === 0;
 
   return (
@@ -70,31 +83,49 @@ export default function Table<T extends string>({ itemList, labelList }: Props<T
         })}
       </tbody>
       <footer className="rounded-b-md flex justify-end gap-8 p-4 bg-purple-50 text-sm text-gray-600">
-        <div>Rows per page: 10</div>
+        <div>현재 페이지: {page + 1}</div>
         <div>
-          1-{10} of {itemList.length}
+          {getPageNumberList(12).map((item) => (
+            <button key={item} onClick={() => setPage(item)}>
+              {item}
+            </button>
+          ))}
         </div>
         <div className="flex gap-10">
-          <button type="button">
+          <button
+            type="button"
+            disabled={!hasPrevPage}
+            className={getClassNames(
+              hasPrevPage ? '' : 'cursor-not-allowed text-gray-300',
+              `border`
+            )}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={2}
               stroke="currentColor"
-              className="w-4 h-4"
+              className="w-6 h-6"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
             </svg>
           </button>
-          <button type="button">
+          <button
+            type="button"
+            disabled={!hasNextPage}
+            className={getClassNames(
+              hasNextPage ? '' : 'cursor-not-allowed text-gray-300',
+              `border`
+            )}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={2}
               stroke="currentColor"
-              className="w-4 h-4"
+              className="w-6 h-6"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
             </svg>
