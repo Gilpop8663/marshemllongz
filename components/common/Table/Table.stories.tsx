@@ -55,3 +55,31 @@ export const Primary: Story = {
     ],
   },
 };
+
+export const Empty: Story = {
+  args: {
+    labelList: [
+      {
+        label: 'NAME',
+        value: 'name',
+        gridFractionalUnit: 1,
+      },
+      {
+        label: 'USER STATUS',
+        value: 'userStatus',
+        gridFractionalUnit: 3,
+      },
+      {
+        label: 'PAYMENT STATUS',
+        value: 'paymentStatus',
+        gridFractionalUnit: 6,
+      },
+      {
+        label: 'AMOUNT',
+        value: 'amount',
+        gridFractionalUnit: 2,
+      },
+    ],
+    itemList: [],
+  },
+};
