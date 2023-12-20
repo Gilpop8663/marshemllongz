@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createCategory } from '@backend/api/admin/category';
+import { createCategory, getAdminCategoryList } from '@backend/api/admin/category';
+
+export async function GET(request: NextRequest) {
+  const categoryList = await getAdminCategoryList();
+
+  return NextResponse.json(categoryList, { status: 200, statusText: 'OK' });
+}
 
 interface CategoryApiRequest {
   name: string;

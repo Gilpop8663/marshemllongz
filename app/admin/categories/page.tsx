@@ -1,22 +1,22 @@
 import React from 'react';
 import Link from 'next/link';
 import { PATH } from '@backend/constants/path';
-import { getCategoryList } from 'api/categories';
+import { getAdminCategoryList } from 'api/admin/categories';
 import Button from '@components/common/Button';
 import Table from '@components/common/Table';
 
-type CategoryKey = 'id' | 'name' | 'description' | 'quantity' | 'edit' | 'delete';
+type CategoryKey = 'id' | 'name' | 'description' | 'quantity' | 'edit' | 'isVisible';
 
 export default async function AdminPage() {
-  const categoryList = await getCategoryList();
+  const categoryList = await getAdminCategoryList();
   const categoryTableItemList = categoryList.map((category) => ({
     ...category,
+    isVisible: category.isVisible ? '공개' : '비공개',
     edit: (
       <Link href={`${PATH.ADMIN}/categories/${category.id}`}>
         <Button color="black" text="수정" />
       </Link>
     ),
-    delete: <Button color="white" text="삭제" />,
   }));
 
   return (
@@ -35,10 +35,10 @@ export default async function AdminPage() {
         labelList={[
           { label: '번호', gridFractionalUnit: 1, value: 'id' },
           { label: '이름', gridFractionalUnit: 1, value: 'name' },
-          { label: '설명', gridFractionalUnit: 1, value: 'description' },
-          { label: '카테고리 아이템 개수', gridFractionalUnit: 2, value: 'quantity' },
+          { label: '설명', gridFractionalUnit: 2, value: 'description' },
+          { label: '카테고리 아이템 개수', gridFractionalUnit: 1, value: 'quantity' },
+          { label: '공개/비공개', gridFractionalUnit: 1, value: 'isVisible' },
           { label: '수정', gridFractionalUnit: 1, value: 'edit' },
-          { label: '삭제', gridFractionalUnit: 1, value: 'delete' },
         ]}
       />
     </div>

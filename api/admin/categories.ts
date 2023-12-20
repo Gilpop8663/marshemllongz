@@ -1,5 +1,6 @@
 import { CreateCategory, ModifyCategory } from '@backend/api/admin/category';
-import { postFetch, putFetch } from '@utils/fetch';
+import { RecipeCategory } from '@prisma/client';
+import { getFetch, postFetch, putFetch } from '@utils/fetch';
 
 const BASE_URL = process.env.NEXT_PUBLIC_ENV_BASE_URL;
 
@@ -16,5 +17,13 @@ export const modifyCategory = async ({ id, name, description, isVisible }: Modif
     isVisible,
     name,
     description,
+  });
+};
+
+export type AdminCategory = RecipeCategory & { quantity: number };
+
+export const getAdminCategoryList = async () => {
+  return await getFetch<AdminCategory[]>(`${BASE_URL}/api/admin/categories`, {
+    cache: 'no-store',
   });
 };

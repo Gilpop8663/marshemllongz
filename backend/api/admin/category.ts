@@ -1,6 +1,12 @@
 import { validateCategory } from '@backend/utils/validate';
 import prisma from '@libs/prisma/client';
 
+export const getAdminCategoryList = async () => {
+  const categoryList = await prisma.recipeCategory.findMany();
+
+  return categoryList.map((category) => ({ ...category, quantity: 0 }));
+};
+
 export interface CreateCategory {
   name: string;
   description?: string;

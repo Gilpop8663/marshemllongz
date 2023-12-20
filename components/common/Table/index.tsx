@@ -37,7 +37,7 @@ export default function Table<T extends string>({ itemList, labelList }: Props<T
               key={label.value}
               align="center"
             >
-              {label.value}
+              {label.label}
             </th>
           ))}
         </tr>
