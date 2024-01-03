@@ -1,4 +1,4 @@
-import { validateCategory } from '@backend/utils/validate';
+import { validateCategory } from '@backend/utils/validate/category';
 import prisma from '@libs/prisma/client';
 
 export const getAdminCategoryList = async () => {

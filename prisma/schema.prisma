@@ -231,3 +231,24 @@ model RecipeCategory{
   description String?
   isVisible Boolean @default(true) 
 }
+
+model RecipeProduct{
+  id Int @id @default(autoincrement())
+  title String
+  thumbnailUrl String
+  additional Json 
+  categoryId Int 
+  ribonText String? 
+  caution String?
+  description Json
+  ingredient String?
+  price Int
+  isVisiblePerUnitPrice Boolean
+  cost Int
+  addOptions Json
+  isDiscount Boolean
+  discountPrice Int
+  isSale Boolean
+  updatedAt DateTime 
+  createdAt DateTime @default(now())
+}
